@@ -1671,3 +1671,15 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
 
   body.панель-с-переходом .липкая-кнопка { transition: none; }
 }
+
+/* экран 02 */
+#экран-02 .плита { border-radius: var(--радиус-карточки); padding: clamp(28px, 4.5vw, 64px); background: color-mix(in oklch, color-mix(in oklch, var(--цвет-акцент) 80%, var(--цвет-акцент-яркий)) 83%, var(--цвет-фон)); color: var(--цвет-текст); box-shadow: var(--тень-глубокая); }
+  #экран-02 .плита h2 { color: var(--цвет-текст); max-width: 16em; margin: 0; }
+  #экран-02 .тройка { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 44px); margin: clamp(28px, 4vw, 56px) 0 0; padding: 0; list-style: none; }
+  #экран-02 .довод { padding-top: 18px; border-top: 3px solid var(--цвет-акцент); }
+  #экран-02 .довод .иконка { width: .8em; height: .8em; margin-top: .12em; color: var(--цвет-текст); }
+  #экран-02 .довод b { display: flex; align-items: flex-start; gap: .25em; font-size: var(--кегль-цифра); font-weight: 800; line-height: 1.1; margin-bottom: 12px; }
+  #экран-02 .довод p { margin: 0; font-size: var(--кегль-лид); line-height: 1.5; font-weight: 500; }
+  @media (max-width: 899px) {
+    #экран-02 .тройка { grid-template-columns: 1fr; gap: 24px; }
+  }
