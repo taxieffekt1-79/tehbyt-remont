@@ -1680,6 +1680,9 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   #экран-02 .довод .иконка { width: .8em; height: .8em; margin-top: .12em; color: var(--цвет-текст); }
   #экран-02 .довод b { display: flex; align-items: flex-start; gap: .25em; font-size: var(--кегль-цифра); font-weight: 800; line-height: 1.1; margin-bottom: 12px; }
   #экран-02 .довод p { margin: 0; font-size: var(--кегль-лид); line-height: 1.5; font-weight: 500; }
+  @media (min-width: 900px) {
+    #экран-02 .довод b { min-height: 2.2em; }
+  }
   @media (max-width: 899px) {
     #экран-02 .тройка { grid-template-columns: 1fr; gap: 24px; }
   }
