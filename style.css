@@ -1705,3 +1705,46 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     #экран-03 .строка span { font-size: calc(var(--кегль-лид) * .88); }
     #экран-03 .строка b { font-size: calc(var(--кегль-цифра) * .8); }
   }
+
+/* экран 04 */
+#экран-04 .путь { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 72px); align-items: start; margin-top: clamp(28px, 4vw, 52px); }
+  #экран-04 .шаги { position: relative; margin: 0; padding: 0; list-style: none; display: grid; gap: clamp(20px, 2.6vw, 32px); }
+  #экран-04 .шаги::before { content: ""; position: absolute; left: 1.1rem; top: 1.2rem; bottom: 1.2rem; width: var(--нить); }
+  #экран-04 .ход { position: relative; display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: clamp(14px, 2vw, 22px); align-items: start; }
+  #экран-04 .ход__номер { position: relative; z-index: 1; width: 2.2rem; height: 2.2rem; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: var(--кегль-текст); line-height: 1; }
+  #экран-04 .ход b { display: block; font-weight: 800; font-size: var(--кегль-лид); line-height: 1.2; margin: .3rem 0 .35rem; }
+  #экран-04 .ход p { text-wrap: pretty; margin: 0; font-size: var(--кегль-текст); line-height: 1.55; }
+  #экран-04 .решаете { border-radius: var(--радиус-карточки); padding: clamp(24px, 3vw, 40px); box-shadow: var(--тень-глубокая); display: grid; gap: 1rem; }
+  #экран-04 .решаете__слово { font-weight: 800; font-size: var(--кегль-h2); line-height: 1.05; margin: 0; }
+  #экран-04 .решаете p { margin: 0; font-size: var(--кегль-лид); line-height: 1.5; }
+
+  #экран-04 .решаете { position: relative; overflow: hidden; isolation: isolate; }
+  #экран-04 .решаете::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 45%; z-index: -1; pointer-events: none; background: linear-gradient(105deg, transparent 0%, color-mix(in srgb, var(--цвет-тёплый-мягкий) 16%, transparent) 50%, transparent 100%); transform: translateX(-130%) skewX(-12deg); animation: решаете-блик 7s ease-in-out 1.5s infinite; }
+  @keyframes решаете-блик { 0% { transform: translateX(-130%) skewX(-12deg); } 30%, 100% { transform: translateX(330%) skewX(-12deg); } }
+  @media (prefers-reduced-motion: reduce) { #экран-04 .решаете::after { animation: none; display: none; } }
+  #экран-04.светлый .шаги::before { background: var(--цвет-линия); }
+  #экран-04.светлый .ход__номер { background: var(--цвет-тёплый); color: var(--цвет-тёмный-фон); }
+  #экран-04.светлый .ход p { color: var(--цвет-текст-мягкий); }
+  #экран-04.светлый .ход b { color: var(--цвет-текст); }
+  #экран-04.светлый .решаете { background: color-mix(in srgb, var(--цвет-тёмный-фон-2) 85%, var(--цвет-текст-мягкий)); color: var(--цвет-тёмный-текст); }
+  #экран-04.светлый .решаете__слово { color: var(--цвет-тёплый); }
+  #экран-04.тёмный .шаги::before { background: color-mix(in srgb, var(--цвет-тёмный-текст) 22%, transparent); }
+  #экран-04.тёмный .ход__номер { background: var(--цвет-тёплый); color: var(--цвет-тёмный-фон); }
+  #экран-04.тёмный .ход p { color: color-mix(in srgb, var(--цвет-тёмный-текст) 75%, transparent); }
+  #экран-04.тёмный .ход b { color: var(--цвет-тёмный-текст); }
+  #экран-04.тёмный .решаете { background: var(--цвет-тёмный-фон-2); color: var(--цвет-тёмный-текст); }
+  #экран-04.тёмный .решаете__слово { color: var(--цвет-тёплый); }
+  @media (min-width: 900px) {
+    #экран-04 .ход b { font-size: calc(var(--кегль-лид) * 1.25); }
+    #экран-04 .ход p { font-size: calc(var(--кегль-текст) * 1.2); }
+    #экран-04 .решаете { position: sticky; top: 96px; padding: clamp(36px, 3.6vw, 56px); gap: 1.4rem; }
+    #экран-04 .решаете p { font-size: calc(var(--кегль-лид) * 1.3); }
+    #экран-04 .решаете__слово { font-size: calc(var(--кегль-h2) * 1.1); }
+  }
+  @media (max-width: 899px) {
+    #экран-04 .путь { grid-template-columns: 1fr; }
+    #экран-04 .шаги { gap: 16px; }
+    #экран-04 .ход b { font-size: calc(var(--кегль-лид) * .94); margin: .2rem 0 .25rem; }
+    #экран-04 .ход p { font-size: calc(var(--кегль-текст) * .94); line-height: 1.45; }
+    #экран-04 .решаете { padding: 22px; gap: .7rem; }
+  }
