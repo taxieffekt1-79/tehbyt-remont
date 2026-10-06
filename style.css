@@ -1696,6 +1696,9 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   @media (max-width: 899px) {
     #экран-02 .тройка { grid-template-columns: 1fr; gap: 24px; }
   }
+  #экран-02 .действие-секции { margin-top: clamp(24px, 3vw, 36px); }
+  @media (max-width: 899px) { #экран-02 .действие-секции { display: none; } }
+  #экран-02 .действие-секции { --цвет-кнопки: var(--цвет-тёмный-фон); --цвет-на-кнопке: var(--цвет-тёмный-текст); --цвет-кнопки-навёл: var(--цвет-тёмный-фон-2); }
 
 /* экран 03 */
 #экран-03 { position: relative; overflow: hidden; }
@@ -1712,6 +1715,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   #экран-03 .шапка-ц h2 { margin: 0; }
   #экран-03 .пояснение { margin: 20px 0 0; font-size: var(--кегль-текст); line-height: 1.55; color: var(--цвет-тёмный-текст); opacity: .82; }
   #экран-03 .действие-секции { margin-top: 24px; }
+  @media (max-width: 899px) { #экран-03 .действие-секции { display: none; } }
   #экран-03 .группа + .группа { margin-top: clamp(24px, 3vw, 36px); }
   #экран-03 .группа h3 { margin: 0 0 6px; font-size: var(--кегль-лид); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--цвет-акцент-яркий); }
   #экран-03 .строки { margin: 0; padding: 0; list-style: none; }
@@ -1780,4 +1784,47 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     #экран-04 .ход b { font-size: calc(var(--кегль-лид) * .94); margin: .2rem 0 .25rem; }
     #экран-04 .ход p { font-size: calc(var(--кегль-текст) * .94); line-height: 1.45; }
     #экран-04 .решаете { padding: 22px; gap: .7rem; }
+  }
+  #экран-04 .действие-секции { margin-top: clamp(24px, 3vw, 40px); }
+  @media (max-width: 899px) { #экран-04 .действие-секции { display: none; } }
+  #экран-04 .действие-секции { --цвет-кнопки: var(--цвет-тёмный-фон); --цвет-на-кнопке: var(--цвет-тёмный-текст); --цвет-кнопки-навёл: var(--цвет-тёмный-фон-2); }
+
+/* экран 05 */
+#экран-05 { position: relative; overflow: clip; }
+  #экран-05 .блок__внутри { position: relative; z-index: 1; }
+  #экран-05 .фон-рисунок { position: absolute; z-index: 0; pointer-events: none; fill: none; stroke: var(--цвет-тёплый-мягкий); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; opacity: .17; }
+  #экран-05 .фон-рисунок--щит { width: clamp(110px, 11vw, 160px); right: 6%; top: 7%; transform: rotate(8deg); }
+  #экран-05 .фон-рисунок--часы { width: clamp(120px, 13vw, 200px); right: 4%; bottom: 3%; }
+  @media (max-width: 899px) {
+    #экран-05 .фон-рисунок { opacity: .34; }
+    #экран-05 .фон-рисунок--щит { width: 66px; right: 7%; top: 16px; bottom: auto; }
+    #экран-05 .фон-рисунок--часы { display: none; }
+  }
+  #экран-05 .обещания { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); margin: clamp(28px, 4vw, 52px) 0 0; padding: 0; list-style: none; counter-reset: обещание; }
+  #экран-05 .обещание { position: relative; display: grid; align-content: start; gap: .8rem; border-radius: var(--радиус-карточки); padding: clamp(24px, 2.6vw, 38px); box-shadow: var(--тень-глубокая); counter-increment: обещание; }
+  #экран-05 .обещание::before { content: "0" counter(обещание); font-weight: 800; font-size: var(--кегль-h2); line-height: 1; }
+  #экран-05 .обещание b { display: block; font-weight: 800; font-size: var(--кегль-лид); line-height: 1.2; text-wrap: balance; }
+  #экран-05 .обещание p { margin: 0; font-size: var(--кегль-текст); line-height: 1.55; text-wrap: pretty; }
+  #экран-05 .действие { margin-top: clamp(24px, 3vw, 40px); }
+  #экран-05.светлый .обещание { background: var(--цвет-тёмный-фон-2); color: var(--цвет-тёмный-текст); }
+  #экран-05.светлый .обещание::before { color: var(--цвет-тёплый); }
+  #экран-05.светлый .обещание b { color: var(--цвет-тёмный-текст); }
+  #экран-05.светлый .обещание p { color: color-mix(in srgb, var(--цвет-тёмный-текст) 78%, transparent); }
+  #экран-05.тёмный .обещание { background: var(--цвет-тёмный-фон-2); color: var(--цвет-тёмный-текст); }
+  #экран-05.тёмный .обещание::before { color: var(--цвет-тёплый); }
+  #экран-05.тёмный .обещание b { color: var(--цвет-тёмный-текст); }
+  #экран-05.тёмный .обещание p { color: color-mix(in srgb, var(--цвет-тёмный-текст) 78%, transparent); }
+  @media (max-width: 899px) {
+    #экран-05 .обещания { grid-template-columns: 1fr; }
+    #экран-05 .действие { display: none; }
+    #экран-05 .обещания { margin-bottom: 110px; }
+    #экран-05 .обещание, #экран-05.светлый .обещание, #экран-05.тёмный .обещание { background: color-mix(in srgb, var(--цвет-тёмный-текст) 12%, var(--цвет-тёмный-фон-2)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--цвет-тёмный-текст) 26%, transparent), 0 26px 50px -18px color-mix(in srgb, var(--цвет-тёмный-фон) 90%, transparent), 0 0 40px -10px color-mix(in srgb, var(--цвет-тёплый) 12%, transparent); }
+    #экран-05 .обещание { padding: 22px; gap: .6rem; }
+    #экран-05 .обещание::before { font-size: var(--кегль-лид); }
+  }
+  @media (min-width: 900px) {
+    #экран-05 .обещание { padding: 44px 40px 48px; gap: 1rem; background: color-mix(in srgb, var(--цвет-тёмный-текст) 12%, var(--цвет-тёмный-фон-2)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--цвет-тёмный-текст) 26%, transparent), 0 26px 50px -18px color-mix(in srgb, var(--цвет-тёмный-фон) 90%, transparent), 0 0 40px -10px color-mix(in srgb, var(--цвет-тёплый) 12%, transparent); }
+    #экран-05 .обещание b { font-size: 26px; }
+    #экран-05 .обещание p { font-size: 20px; line-height: 1.5; }
+    #экран-05.светлый .обещание, #экран-05.тёмный .обещание { background: color-mix(in srgb, var(--цвет-тёмный-текст) 12%, var(--цвет-тёмный-фон-2)); }
   }
