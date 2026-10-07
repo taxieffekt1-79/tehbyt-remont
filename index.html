@@ -141,6 +141,11 @@
   #экран-1 .первый-экран__доверие { margin-top: .5em; }
   #экран-1 .блок__внутри { padding-top: 0; gap: 1.2rem; }
   #экран-1 .кикер { margin-bottom: 0; }
+  #экран-1 .кикер--пилюля { font-size: 1.2rem; padding: .55em 1.3em; gap: .6em; }
+  #экран-1 .кикер--пилюля svg, #экран-1 .кикер--пилюля .иконка { width: 1.2em; height: 1.2em; }
+  #экран-1 .шапка { height: 4.5rem; }
+  #экран-1 .шапка__лого { flex-direction: column; align-items: flex-start; gap: .3em; }
+  #экран-1 .шапка__город { display: block; font-size: .62em; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--цвет-акцент); }
   #экран-1 .первый-экран__картинка { margin-top: 1.4rem; }
   .картинка--мокап video { max-height: 48vh; width: 100%; }
   #экран-1 .блок__внутри { display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -152,6 +157,7 @@
   #экран-1 .первый-экран__доверие { order: 4; }
 }
 @media (max-width: 899px) {
+  #экран-1 .шапка__город { display: none; }
   #экран-1 .первый-экран__текст { padding-top: 0; }
   #экран-1 .блок__внутри { padding-top: 0; margin-top: .7rem; }
   #экран-1 .блок__внутри { display: flex; flex-direction: column; gap: 0; }
@@ -172,7 +178,7 @@
 }
 </style>
   <header class="шапка">
-    <a class="шапка__лого" href="#" style="font-size:clamp(1.02em,.2em + 1.2vw,1.2em)">ТехБытСервис Ремонт</a>
+    <a class="шапка__лого" href="#" style="font-size:clamp(1.02em,.2em + 1.2vw,1.2em)">ТехБытСервис Ремонт<span class="шапка__город">Санкт-Петербург</span></a>
     <span class="шапка__лиц" style="font-size:clamp(.9em,.3em + 1.2vw,1.1em);font-weight:700;white-space:nowrap"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/>
 </svg><span><a class="полн" href="tel:+79117633238" style="color:inherit;text-decoration:none">+7 (911) 763-32-38</a></span></span>
