@@ -341,7 +341,7 @@
     <p class="смс">СМС - на тот же номер <a href="sms:+79117633238">+7 (911) 763-32-38</a></p>
     <p class="мастерская">Мастерская: Санкт-Петербург, ул. Бабушкина, д. 21к1. Открыта с 10 до 20 часов, каждый день, кроме пятницы</p>
     <div class="действие-секции"><a class="кнопка кнопка--главная" href="tel:+79117633238">Позвонить</a></div>
-    <p class="реквизиты">ИП Абдулминова И.В. · ИНН 781712219309 · ОГРНИП 316784700094418 · <a href="mailto:servisespb@yandex.ru">servisespb@yandex.ru</a></p>
+    <p class="реквизиты">ИП Абдулминова И.В. · ИНН 781712219309 · ОГРНИП 316784700094418 · <a href="mailto:servisespb@yandex.ru">servisespb@yandex.ru</a> · <a href="политика.html">Политика обработки данных</a></p>
   </div>
 </section>
 <div class="липкая-кнопка липкая-кнопка--тёмная"><a class="кнопка кнопка--главная" href="tel:+79117633238">Позвонить</a></div>
@@ -441,6 +441,25 @@
     var тише = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.scrollTo({ top: 0, behavior: тише ? "auto" : "smooth" });
   });
+})();
+</script>
+<script>
+(function () {
+  var КЛЮЧ = "куки-принято";
+  try { if (window.localStorage.getItem(КЛЮЧ)) { return; } } catch (е) {  }
+
+  var плашка = document.createElement("div");
+  плашка.className = "плашка-куки";
+  плашка.setAttribute("role", "region");
+  плашка.setAttribute("aria-label", "Файлы cookie");
+  плашка.innerHTML = '<p class="плашка-куки__текст">Сайт использует файлы cookie и Яндекс.Метрику, чтобы работать лучше. ' +
+    'Оставаясь на сайте, вы соглашаетесь с <a href="политика.html">политикой обработки данных</a>.</p>' +
+    '<button class="плашка-куки__кнопка" type="button">Хорошо</button>';
+  плашка.querySelector("button").addEventListener("click", function () {
+    try { window.localStorage.setItem(КЛЮЧ, "1"); } catch (е) {  }
+    плашка.remove();
+  });
+  document.body.appendChild(плашка);
 })();
 </script>
 </body>
