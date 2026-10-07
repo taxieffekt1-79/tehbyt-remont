@@ -1803,6 +1803,19 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   @media (max-width: 899px) { #экран-02 .действие-секции { display: none; } }
   #экран-02 .действие-секции { --цвет-кнопки: var(--цвет-тёмный-фон); --цвет-на-кнопке: var(--цвет-тёмный-текст); --цвет-кнопки-навёл: var(--цвет-тёмный-фон-2); }
 
+  #экран-02 .мастер { margin: clamp(20px, 3vw, 28px) 0 0; border-radius: var(--радиус-карточки); overflow: hidden; aspect-ratio: 4 / 3; }
+  #экран-02 .мастер img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; transform: scale(1.15); transform-origin: 18% 30%; }
+  @media (min-width: 900px) {
+    #экран-02 .плита { display: grid; grid-template-columns: 1fr minmax(260px, 34%); grid-template-areas: "шапка фото" "пункты фото" "кнопка фото"; grid-template-rows: auto auto auto; column-gap: clamp(32px, 4vw, 64px); align-content: start; }
+    #экран-02 .секция__шапка { grid-area: шапка; }
+    #экран-02 .тройка { grid-area: пункты; grid-template-columns: 1fr; gap: 22px; margin-top: 0; }
+    #экран-02 .довод b { min-height: 0; }
+    #экран-02 .действие-секции { grid-area: кнопка; }
+    #экран-02 .мастер { grid-area: фото; margin: 0; aspect-ratio: auto; position: relative; min-height: 0; }
+    #экран-02 .мастер img { position: absolute; inset: 0; }
+    #экран-02 .мастер img { object-position: 25% 30%; transform: scale(1.24); transform-origin: 0% 35%; }
+  }
+
   @media (min-width: 900px) {
     #экран-02 .действие-секции { --цвет-кнопки: var(--цвет-тёмный-фон); --цвет-на-кнопке: var(--цвет-тёмный-текст); --цвет-кнопки-навёл: var(--цвет-тёмный-фон-2); }
     #экран-02 .действие-секции .кнопка { position: relative; overflow: hidden; }
