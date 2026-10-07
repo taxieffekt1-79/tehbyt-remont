@@ -1858,7 +1858,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     #экран-03 .шапка-ц .пояснение:not(.пояснение--входит) { margin-top: 16px; }
     #экран-03 .группа h3 { font-size: calc(var(--кегль-лид) * .85); }
     #экран-03 .строка { flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0; }
-    #экран-03 .строка span { font-size: calc(var(--кегль-лид) * .88); }
+    #экран-03 .строка span { font-size: var(--кегль-лид); }
     #экран-03 .строка b { font-size: calc(var(--кегль-цифра) * .8); }
   }
 
@@ -2008,7 +2008,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     #экран-06 .слово { padding: 40px 44px 44px; gap: .2rem; }
     #экран-06 .слово b { font-size: 32px; line-height: 1.25; overflow-wrap: anywhere; }
     #экран-06 .слово::before { font-size: calc(var(--кегль-h1) * 1.2); }
-    #экран-06 .пока { font-size: 24px; }
+    #экран-06 .пока { font-size: 20px; }
   }
   @media (max-width: 899px) {
     #экран-06 .слова { grid-template-columns: 1fr; gap: 14px; }
@@ -2102,8 +2102,8 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     #экран-08 .способ { padding: 20px 36px 32px; }
     #экран-08 .способ b { font-size: 26px; }
     #экран-08 .значок { width: 3rem; height: 3rem; }
-    #экран-08 .подзаголовок { font-size: 24px; }
-    #экран-08 .смс { font-size: 24px; }
+    #экран-08 .подзаголовок { font-size: 20px; }
+    #экран-08 .смс { font-size: 20px; }
     #экран-08 .мастерская { font-size: 20px; }
     #экран-08 .реквизиты { font-size: 18px; }
   }

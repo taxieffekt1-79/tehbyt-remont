@@ -11,7 +11,8 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"></noscript>
 <link rel="stylesheet" href="style.css">
 <style>
 :root {
@@ -210,7 +211,10 @@
     </div>
     <figure class="картинка картинка--мокап первый-экран__картинка">
       <div class="окно">
-        <video autoplay muted loop playsinline preload="metadata" poster="video/афиша-компьютер.jpg" data-телефон="video/афиша-телефон.mp4" data-телефон-постер="video/афиша-телефон.jpg" data-лицо="50,22" aria-label="Мастер за ремонтом"><source src="video/афиша-компьютер.mp4" type="video/mp4"></video>
+        <link rel="preload" as="image" href="video/афиша-телефон.jpg" media="(max-width: 899px)" fetchpriority="high">
+        <link rel="preload" as="image" href="video/афиша-компьютер.jpg" media="(min-width: 900px)" fetchpriority="high">
+        <video autoplay muted loop playsinline preload="metadata" data-постер="video/афиша-компьютер.jpg" data-телефон="video/афиша-телефон.mp4" data-телефон-постер="video/афиша-телефон.jpg" data-лицо="50,22" aria-label="Мастер за ремонтом"><source src="video/афиша-компьютер.mp4" type="video/mp4"></video>
+        <script>(function(){var в=document.currentScript.previousElementSibling,т=matchMedia("(max-width: 899px)").matches;в.setAttribute("poster",в.getAttribute(т?"data-телефон-постер":"data-постер"));})();</script>
       </div>
       <ul class="плашки-плюсов">
         <li><i class="галка"></i><span>Гарантия на ремонт - от 3 до 6 месяцев</span></li>
