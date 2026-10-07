@@ -419,12 +419,17 @@ body, .светлый { --фон-ключа: var(--цвет-фон); --фон-2-
 @media (prefers-reduced-motion: reduce) { .кнопка-наверх { transition: none; transform: none; } }
 
 .плашка-куки { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 900; display: flex; align-items: center; gap: 16px;
-  max-width: 760px; margin-inline: auto; padding: 14px 18px; background: var(--цвет-тёмный-фон); color: var(--цвет-тёмный-текст);
+  max-width: 760px; margin-inline: auto; padding: 14px 18px; background: color-mix(in srgb, var(--цвет-тёмный-фон) 68%, transparent); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: var(--цвет-тёмный-текст);
   border-radius: 14px; box-shadow: 0 12px 36px color-mix(in srgb, var(--цвет-тёмный-фон) 45%, transparent); }
 .плашка-куки__текст { margin: 0; font-size: var(--кегль-мелкий); line-height: 1.45; }
 .плашка-куки__текст a { color: inherit; text-decoration: underline; }
 .плашка-куки__кнопка { flex: none; min-height: 44px; padding: 0 20px; border: 0; border-radius: 10px; font: inherit; font-weight: 600;
   background: var(--цвет-акцент); color: var(--цвет-на-акценте); cursor: pointer; }
+
+@media (min-width: 601px) {
+  .плашка-куки { left: 0; right: 0; bottom: 0; max-width: none; margin-inline: 0; border-radius: 0; justify-content: center; padding: 10px 24px; }
+  .плашка-куки__кнопка { min-height: 40px; }
+}
 @media (max-width: 600px) {
   .плашка-куки { gap: 10px; padding: 9px 10px 9px 12px; border-radius: 12px; bottom: calc(5.4em + env(safe-area-inset-bottom)); }
   .плашка-куки__текст { font-size: 13px; line-height: 1.35; }
@@ -2038,8 +2043,8 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   }
   @media (max-width: 899px) {
     #экран-07 .места { grid-template-columns: 1fr; gap: 14px; }
-    #экран-07 .место { padding: 20px 22px; gap: .5rem; }
-    #экран-07 .значок { width: 1.8rem; height: 1.8rem; }
+    #экран-07 .место { padding: 14px 22px 18px; gap: .3rem; }
+    #экран-07 .значок { width: 1.4rem; height: 1.4rem; }
     #экран-07 .действие-секции { display: none; }
     #экран-07 .не-уверены { margin-bottom: 110px; }
   }
