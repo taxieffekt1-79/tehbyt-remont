@@ -432,6 +432,42 @@ body, .светлый { --фон-ключа: var(--цвет-фон); --фон-2-
 .страница-текста p, .страница-текста li { line-height: 1.6; }
 .страница-текста .назад { display: inline-block; margin-bottom: 24px; }
 
+@media (min-width: 900px) {
+  :is(.действие-секции, .действие, .первый-экран__действие) .кнопка--главная {
+    position: relative; overflow: hidden; isolation: isolate; animation: none;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--цвет-кнопки, var(--цвет-акцент)) 90%, white) 0%, var(--цвет-кнопки, var(--цвет-акцент)) 40%, var(--цвет-кнопки, var(--цвет-акцент)) 100%);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, white 70%, transparent), inset 0 0 0 1px color-mix(in srgb, white 22%, transparent), 0 4px 0 color-mix(in srgb, var(--цвет-кнопки, var(--цвет-акцент)) 78%, black), 0 12px 22px -6px color-mix(in srgb, var(--цвет-кнопки, var(--цвет-акцент)) 60%, transparent);
+    transition: transform .12s, box-shadow .12s, filter .12s;
+  }
+  :is(.действие-секции, .действие, .первый-экран__действие) .кнопка--главная::before {
+    content: ""; position: absolute; z-index: -1; left: 3px; right: 3px; top: 2px; height: 46%; border-radius: inherit; pointer-events: none;
+    background: linear-gradient(180deg, color-mix(in srgb, white 38%, transparent), color-mix(in srgb, white 4%, transparent));
+  }
+  :is(.действие-секции, .действие, .первый-экран__действие) .кнопка--главная:hover { filter: brightness(1.06); }
+  :is(.действие-секции, .действие, .первый-экран__действие) .кнопка--главная:active {
+    transform: translateY(3px);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, white 70%, transparent), 0 1px 0 color-mix(in srgb, var(--цвет-кнопки, var(--цвет-акцент)) 78%, black), 0 4px 10px -4px color-mix(in srgb, var(--цвет-кнопки, var(--цвет-акцент)) 60%, transparent);
+  }
+}
+
+@media (min-width: 900px) {
+  .первый-экран__действие .кнопка--контур {
+    position: relative; overflow: hidden; isolation: isolate;
+    background: linear-gradient(180deg, color-mix(in srgb, currentColor 16%, transparent) 0%, color-mix(in srgb, currentColor 4%, transparent) 100%);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, currentColor 40%, transparent), 0 4px 0 color-mix(in srgb, black 55%, transparent), 0 12px 22px -6px color-mix(in srgb, black 55%, transparent);
+    transition: transform .12s, box-shadow .12s, filter .12s;
+  }
+  .первый-экран__действие .кнопка--контур::before {
+    content: ""; position: absolute; z-index: -1; left: 3px; right: 3px; top: 2px; height: 46%; border-radius: inherit; pointer-events: none;
+    background: linear-gradient(180deg, color-mix(in srgb, white 22%, transparent), color-mix(in srgb, white 2%, transparent));
+  }
+  .первый-экран__действие .кнопка--контур:hover { filter: brightness(1.15); }
+  .первый-экран__действие .кнопка--контур:active {
+    transform: translateY(3px);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, currentColor 40%, transparent), 0 1px 0 color-mix(in srgb, black 55%, transparent), 0 4px 10px -4px color-mix(in srgb, black 55%, transparent);
+  }
+}
+
 .блок--тихо { padding-block: var(--отступ-секции-тихо, calc(var(--отступ-секции) * .78)); }
 .блок--громко { padding-block: var(--отступ-секции-громко, calc(var(--отступ-секции) * 1.16)); }
 
@@ -1751,6 +1787,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     #экран-02 .действие-секции .кнопка::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 36%; pointer-events: none; background: linear-gradient(100deg, transparent, color-mix(in srgb, white 70%, transparent), transparent); transform: skewX(-20deg); animation: блик-кнопки 4.5s ease-in-out infinite; }
   }
   @keyframes блик-кнопки { 0% { left: -60%; } 40%, 100% { left: 130%; } }
+  @media (min-width: 900px) { #экран-02 .действие-секции .кнопка--главная { background: linear-gradient(180deg, color-mix(in srgb, var(--цвет-кнопки) 78%, white) 0%, var(--цвет-кнопки) 45%, var(--цвет-кнопки) 100%); box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent), inset 0 0 0 1px color-mix(in srgb, white 10%, transparent), 0 4px 0 color-mix(in srgb, black 70%, var(--цвет-кнопки)), 0 12px 22px -6px color-mix(in srgb, black 50%, transparent); } #экран-02 .действие-секции .кнопка--главная:active { box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent), 0 1px 0 color-mix(in srgb, black 70%, var(--цвет-кнопки)), 0 4px 10px -4px color-mix(in srgb, black 50%, transparent); } }
   @media (prefers-reduced-motion: reduce) { #экран-02 .действие-секции .кнопка::after { animation: none; display: none; } }
 
 /* экран 03 */
@@ -1842,8 +1879,8 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   @media (max-width: 899px) {
     #экран-04 .путь { grid-template-columns: 1fr; }
     #экран-04 .шаги { gap: 16px; }
-    #экран-04 .ход b { font-size: calc(var(--кегль-лид) * .94); margin: .2rem 0 .25rem; }
-    #экран-04 .ход p { font-size: calc(var(--кегль-текст) * .94); line-height: 1.45; }
+    #экран-04 .ход b { font-size: var(--кегль-лид); margin: .2rem 0 .25rem; }
+    #экран-04 .ход p { font-size: var(--кегль-текст); line-height: 1.45; }
     #экран-04 .решаете { padding: 22px; gap: .7rem; }
   }
   #экран-04 .действие-секции { margin-top: clamp(24px, 3vw, 40px); }
