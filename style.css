@@ -1821,6 +1821,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   #экран-03 .разворот { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
   #экран-03 .шапка-ц h2 { margin: 0; }
   #экран-03 .пояснение { margin: 20px 0 0; font-size: var(--кегль-текст); line-height: 1.55; color: var(--цвет-тёмный-текст); opacity: .82; }
+  #экран-03 .пояснение--входит { margin-top: 12px; font-weight: 700; opacity: 1; }
   #экран-03 .действие-секции { margin-top: 24px; }
   @media (max-width: 899px) { #экран-03 .действие-секции { display: none; } }
   #экран-03 .группа + .группа { margin-top: clamp(24px, 3vw, 36px); }
@@ -1830,7 +1831,13 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   #экран-03 .строка span { font-size: var(--кегль-лид); font-weight: 500; line-height: 1.3; color: var(--цвет-тёмный-текст); }
   #экран-03 .строка b { flex: none; font-size: var(--кегль-цифра); font-weight: 800; line-height: 1.1; color: var(--цвет-тёмный-текст); white-space: nowrap; }
   @media (max-width: 899px) {
-    #экран-03 .разворот { grid-template-columns: 1fr; gap: 24px; }
+    #экран-03 .разворот { grid-template-columns: 1fr; gap: 0; }
+    #экран-03 .шапка-ц { margin-bottom: 0; padding-bottom: 0; }
+    #экран-03 .шапка-ц { gap: 0; }
+    #экран-03 .пояснение--входит { margin-top: 2px; }
+    #экран-03 .группы { margin-top: 30px; }
+    #экран-03 .шапка-ц h2 { margin-top: 14px; }
+    #экран-03 .шапка-ц .пояснение:not(.пояснение--входит) { margin-top: 16px; }
     #экран-03 .группа h3 { font-size: calc(var(--кегль-лид) * .85); }
     #экран-03 .строка { flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0; }
     #экран-03 .строка span { font-size: calc(var(--кегль-лид) * .88); }
