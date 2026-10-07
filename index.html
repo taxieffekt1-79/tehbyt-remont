@@ -139,6 +139,11 @@
   #экран-1 h1 { font-size: clamp(30px, 2.7vw, 38px); max-width: none; margin-block: .35em .3em; line-height: 1.15; }
   #экран-1 .лид { margin-block: 0 .8em; }
   #экран-1 .первый-экран__доверие { margin-top: .5em; }
+  .лид-тел, .часы-телефон { display: none; }
+  #экран-1 .шапка__лиц svg { width: 1.6em; height: 1.6em; }
+  #экран-1 .первый-экран__доверие { margin-bottom: 1.6rem; }
+  #экран-1 .картинка--мокап .окно video { max-height: 33vh; }
+  #экран-1 .часы-шапка { display: block; font-size: .72em; font-weight: 500; text-align: right; opacity: .75; }
   #экран-1 .блок__внутри { padding-top: 0; gap: 1.2rem; }
   #экран-1 .кикер { margin-bottom: 0; }
   #экран-1 .кикер--пилюля { font-size: 1.2rem; padding: .55em 1.3em; gap: .6em; }
@@ -157,6 +162,14 @@
   #экран-1 .первый-экран__доверие { order: 4; }
 }
 @media (max-width: 899px) {
+  #экран-1 .первый-экран__доверие { display: block; }
+  #экран-1 .первый-экран__доверие svg { display: inline-block; vertical-align: -.2em; margin-right: .4em; }
+  #экран-1 .кикер { display: none; }
+  #экран-1 .первый-экран__доверие { margin-bottom: 2.8rem; }
+  #экран-1 .часы-шапка { display: none; }
+  .лид-комп { display: none; }
+  #экран-1 .первый-экран__действие .часы-телефон { display: block; text-align: center; font-size: var(--кегль-мелкий); opacity: .8; margin-top: 2px; }
+  #экран-1 .первый-экран__действие .кнопка--контур { border: 2px solid var(--цвет-акцент); }
   #экран-1 .шапка__город { display: none; }
   #экран-1 .первый-экран__текст { padding-top: 0; }
   #экран-1 .блок__внутри { padding-top: 0; margin-top: .7rem; }
@@ -165,7 +178,7 @@
   #экран-1 .первый-экран__текст > *, #экран-1 .лид { order: 1; }
   #экран-1 .окно { order: 2; }
   #экран-1 .первый-экран__действие { order: 3 !important; display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-  #экран-1 .первый-экран__действие > :not(.кнопка--контур) { display: none; }
+  #экран-1 .первый-экран__действие > :not(.кнопка--контур):not(.часы-телефон) { display: none; }
   #экран-1 .плашки-плюсов { order: 4; }
   #экран-1 .первый-экран__действие .кнопка--контур { font-size: .9em; padding-block: .55em; min-height: 0; }
   .плашки-плюсов { display: grid; gap: 8px; margin-top: 12px; }
@@ -180,20 +193,20 @@
   <header class="шапка">
     <a class="шапка__лого" href="#" style="font-size:clamp(1.02em,.2em + 1.2vw,1.2em)">ТехБытСервис Ремонт<span class="шапка__город">Санкт-Петербург</span></a>
     <span class="шапка__лиц" style="font-size:clamp(.9em,.3em + 1.2vw,1.1em);font-weight:700;white-space:nowrap"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/>
-</svg><span><a class="полн" href="tel:+79117633238" style="color:inherit;text-decoration:none">+7 (911) 763-32-38</a></span></span>
+  <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>
+</svg><span><a class="полн" href="tel:+79117633238" style="color:inherit;text-decoration:none">+7 (911) 763-32-38</a><small class="часы-шапка">звонки с 10 до 20, выезд до 21:00</small></span></span>
   </header>
   <div class="блок__внутри">
     <div class="первый-экран__текст">
       <p class="кикер кикер--пилюля"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M13 2L4 14h7l-1 8 9-12h-7z"/>
-</svg>Ремонт на дому в Санкт-Петербурге</p>
-      <h1>Ремонт холодильников и стиральных машин<span class="делитель">:</span> <span class="хвост">приедем, цену назовём до <em class="акцент">ремонта</em></span></h1>
-      <p class="лид">Мастера с опытом от 15 лет. Сначала диагностика и вердикт, потом цена, и только далее ремонт</p>
-      <div class="первый-экран__действие"><a class="кнопка кнопка--главная" href="tel:+79117633238">Позвонить</a> <a class="кнопка кнопка--контур" href="https://max.ru/u/f9LHodD0cOJJPJ8IqPOXEAMJ0qZlJnx8I4CjfVxno8m__e93hCTnIAPFoxU" target="_blank" rel="noopener">Написать в MAX</a></div>
+</svg>Ремонт на дому</p>
+      <h1>Ремонт холодильников и стиральных машин в <span style="white-space:nowrap">Санкт-Петербурге</span><span class="делитель">:</span> <span class="хвост">приедем, цену назовём до <em class="акцент">ремонта</em></span></h1>
+      <p class="лид">Мастера с опытом от 15 лет. <span class="лид-комп">Сначала диагностика и вердикт, потом цена, и только далее ремонт</span><span class="лид-тел">Сначала диагностика, потом цена, и ремонт</span></p>
+      <div class="первый-экран__действие"><a class="кнопка кнопка--главная" href="tel:+79117633238">Позвонить</a> <a class="кнопка кнопка--контур" href="https://max.ru/u/f9LHodD0cOJJPJ8IqPOXEAMJ0qZlJnx8I4CjfVxno8m__e93hCTnIAPFoxU" target="_blank" rel="noopener">Написать в MAX</a><span class="часы-телефон">Звонки с 10 до 20, выезд до 21:00</span></div>
       <p class="мелкий первый-экран__доверие"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/>
-</svg> Диагностика бесплатна при ремонте. Если ремонт не нужен - диагностика 2 000 ₽</p>
+</svg> Выезд и диагностика бесплатны, при условии ремонта. Если не готовы - оплата 2 000 ₽ за работу мастера</p>
     </div>
     <figure class="картинка картинка--мокап первый-экран__картинка">
       <div class="окно">
@@ -504,7 +517,16 @@
     try { window.localStorage.setItem(КЛЮЧ, "1"); } catch (е) {  }
     плашка.remove();
   });
-  document.body.appendChild(плашка);
+
+  var первый = document.getElementById("экран-1");
+  var порог = function () { return первый ? первый.offsetHeight * 0.8 : 0; };
+  var показать = function () {
+    window.removeEventListener("scroll", проверить);
+    document.body.appendChild(плашка);
+  };
+  var проверить = function () { if (window.scrollY > порог()) { показать(); } };
+  if (!первый || window.scrollY > порог()) { показать(); }
+  else { window.addEventListener("scroll", проверить, { passive: true }); }
 })();
 </script>
 <script>
