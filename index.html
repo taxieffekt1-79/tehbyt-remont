@@ -114,6 +114,7 @@
 <section class="блок блок--первый-экран первый-экран--живая-сцена тёмный фон--сетка" id="экран-1" data-тип="первый-экран" data-схема="живая-сцена" data-ключ-макета="тёмная" data-картинка="видео-с-голосом" style="--добор-затемнения: 0; --добор-высветления: 0; --лицо-в-кадре: .22">
   <style>
 #экран-1 .картинка--видео-с-голосом img { display: block; }
+@media (min-width: 900px) { #экран-1 .первый-экран__действие { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; align-items: stretch; gap: 12px; } #экран-1 .первый-экран__действие .кнопка { flex: none; } }
 @media (min-width: 900px) { #экран-1 .лид { font-weight: 600; font-size: 1.12em; } #экран-1 h1 { font-size: clamp(2.5rem, 3.6vw, 3.25rem); } }
 @media (min-width: 900px) and (max-height: 860px) {
   #экран-1 h1 { font-size: min(clamp(2.75rem, 4vw, 3.625rem), 6.4vh); }
@@ -361,6 +362,84 @@
   new IntersectionObserver(function (записи) {
     пометить(записи[записи.length - 1].isIntersecting);
   }, { threshold: 0 }).observe(кнопка);
+})();
+</script>
+<script>
+(function () {
+  if (!window.matchMedia || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) { return; }
+
+  function красиво(href) {
+    var ц = href.replace(/^tel:/i, "").replace(/\D/g, "");
+    var м = /^[78](\d{3})(\d{3})(\d{2})(\d{2})$/.exec(ц);
+    return м ? "+7 (" + м[1] + ") " + м[2] + "-" + м[3] + "-" + м[4] : decodeURIComponent(href.replace(/^tel:/i, ""));
+  }
+
+  var окно = null, прежний = null;
+
+  function закрыть() {
+    if (!окно) { return; }
+    окно.remove(); окно = null;
+    document.removeEventListener("keydown", клавиша);
+    if (прежний && прежний.focus) { прежний.focus(); }
+  }
+  function клавиша(е) { if (е.key === "Escape") { закрыть(); } }
+
+  function показать(номер) {
+    закрыть();
+    прежний = document.activeElement;
+    окно = document.createElement("div");
+    окно.className = "окно-номера";
+    окно.innerHTML = '<div class="окно-номера__карточка" role="dialog" aria-modal="true" aria-label="Номер телефона">' +
+      '<button class="окно-номера__закрыть" type="button" aria-label="Закрыть">×</button>' +
+      '<p class="окно-номера__подпись"></p><p class="окно-номера__номер"></p></div>';
+    окно.querySelector(".окно-номера__подпись").textContent = "Позвоните с телефона или запишите номер";
+    окно.querySelector(".окно-номера__номер").textContent = номер;
+    окно.addEventListener("click", function (е) {
+      if (е.target === окно || е.target.closest(".окно-номера__закрыть")) { закрыть(); }
+    });
+    document.body.appendChild(окно);
+    document.addEventListener("keydown", клавиша);
+    окно.querySelector(".окно-номера__закрыть").focus();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('a.кнопка[href^="tel:"]'), function (а) {
+    if (а.closest(".липкая-кнопка")) { return; }
+    var подпись = document.createElement("span");
+    подпись.className = "кнопка__номер";
+    подпись.textContent = красиво(а.getAttribute("href"));
+    а.classList.add("кнопка--с-номером");
+    а.appendChild(подпись);
+  });
+
+  document.addEventListener("click", function (е) {
+    var а = е.target.closest && е.target.closest('a[href^="tel:"]');
+    if (!а || е.defaultPrevented || е.button !== 0 || е.ctrlKey || е.metaKey || е.shiftKey) { return; }
+    е.preventDefault();
+    показать(красиво(а.getAttribute("href")));
+  });
+})();
+</script>
+<script>
+(function () {
+  var кнопка = document.createElement("button");
+  кнопка.type = "button";
+  кнопка.className = "кнопка-наверх";
+  кнопка.setAttribute("aria-label", "Наверх");
+  кнопка.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" ' +
+    'stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  document.body.appendChild(кнопка);
+
+  function обновить() {
+    var видно = (window.pageYOffset || document.documentElement.scrollTop) > (window.innerHeight || 600) * 1.5;
+    кнопка.classList.toggle("кнопка-наверх--видна", видно);
+  }
+  window.addEventListener("scroll", обновить, { passive: true });
+  обновить();
+
+  кнопка.addEventListener("click", function () {
+    var тише = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: тише ? "auto" : "smooth" });
+  });
 })();
 </script>
 </body>

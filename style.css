@@ -394,6 +394,30 @@ body, .светлый { --фон-ключа: var(--цвет-фон); --фон-2-
   .бенто__ячейка { transition: none; }  .бенто__ячейка:hover { transform: none; }
 }
 
+.окно-номера { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center;
+  padding: 16px; background: color-mix(in srgb, var(--цвет-тёмный-фон) 70%, transparent); }
+.окно-номера__карточка { position: relative; max-width: 440px; width: 100%; padding: 40px 32px 36px; text-align: center;
+  background: var(--цвет-фон); color: var(--цвет-текст); border-radius: 20px; box-shadow: 0 24px 60px color-mix(in srgb, var(--цвет-тёмный-фон) 45%, transparent); }
+.окно-номера__подпись { margin: 0 0 12px; font-size: var(--кегль-мелкий); color: var(--цвет-текст-мягкий); }
+.окно-номера__номер { margin: 0; font-size: 2rem; font-weight: 700; line-height: 1.2; letter-spacing: .01em; user-select: all; }
+.окно-номера__закрыть { position: absolute; top: 8px; right: 12px; width: 40px; height: 40px; border: 0; background: none;
+  font-size: 28px; line-height: 1; color: var(--цвет-текст-мягкий); cursor: pointer; }
+.окно-номера__закрыть:hover { color: var(--цвет-текст); }
+.кнопка--с-номером { flex-direction: column; gap: .1em; line-height: 1.15; padding-block: .6em; }
+.кнопка__номер { font-size: .85em; font-weight: 500; opacity: .85; letter-spacing: .01em; white-space: nowrap; }
+
+.кнопка-наверх { position: fixed; right: 20px; bottom: 24px; z-index: 80; width: 48px; height: 48px; padding: 0; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  background: var(--цвет-тёмный-фон); color: var(--цвет-акцент); border: 1px solid color-mix(in srgb, white 22%, transparent);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--цвет-тёмный-фон) 40%, transparent);
+  opacity: 0; transform: translateY(12px); pointer-events: none; visibility: hidden;
+  transition: opacity .25s ease, transform .25s ease, visibility 0s linear .25s; }
+.кнопка-наверх--видна { opacity: 1; transform: none; pointer-events: auto; visibility: visible; transition-delay: 0s; }
+.кнопка-наверх:hover { background: var(--цвет-тёмный-фон-2, var(--цвет-тёмный-фон)); }
+.кнопка-наверх:focus-visible { outline: 2px solid var(--цвет-акцент); outline-offset: 3px; }
+@media (max-width: 600px) { .кнопка-наверх { right: 14px; width: 44px; height: 44px; bottom: calc(5.6em + env(safe-area-inset-bottom)); } }
+@media (prefers-reduced-motion: reduce) { .кнопка-наверх { transition: none; transform: none; } }
+
 .блок--тихо { padding-block: var(--отступ-секции-тихо, calc(var(--отступ-секции) * .78)); }
 .блок--громко { padding-block: var(--отступ-секции-громко, calc(var(--отступ-секции) * 1.16)); }
 
